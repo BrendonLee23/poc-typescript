@@ -1,4 +1,7 @@
-export function validateSchema(schema) {
+import { createEmployeeData } from "@/protocols/employees.protoco"
+import { ObjectSchema } from "joi"
+
+export function validateSchema(schema: ObjectSchema<createEmployeeData>) {
 
     return (req, res, next) => {
         const validation = schema.validate(req.body, { abortEarly: false })
